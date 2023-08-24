@@ -3,17 +3,17 @@
 
 /**
  * string_toupper - function that convert to upper case
- *@c: character to be converted
+ *@str: character to be converted
  * Return: 0
  */
 
-char *string_toupper(char *c)
+char *string_toupper(char *str)
 {
 	int i;
 
 	for (i = 0; i != '\0'; i++)
 	{
-		c[i] = toupper(c[i]);
+		str[i] = toupper(str[i]);
 	}
-	return (c);
+	return (str);
 }
