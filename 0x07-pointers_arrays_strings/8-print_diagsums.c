@@ -21,5 +21,5 @@ void print_diagsums(int *a, int size)
 	{
 		y = y + a[j];
 	}
-	printf("%d, %d\n",x , y);
+	printf("%d, %d\n", x, y);
 }
