@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * _strncat - function that that cat two str & limiting # of bytes from src
@@ -12,6 +13,5 @@ char *_strncat(char *dest, char *src, int n)
 {
 	char *c;
 
-	c = strncat(dest, src, n);
 	return (c);
 }
