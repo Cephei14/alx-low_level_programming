@@ -1,5 +1,5 @@
-#include "main.h"
 #include <string.h>
+#include "main.h"
 
 /**
  *_strncpy - function that copy a string
@@ -11,5 +11,8 @@
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	return (src);
+	char *c;
+
+	c = strncpy(dest, src, n);
+	return (c);
 }
