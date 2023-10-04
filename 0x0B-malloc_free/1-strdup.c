@@ -8,12 +8,12 @@
 
 char *_strdup(char *str)
 {
-	unsigned long int i, c;
+	int i, c;
 	char *p;
 
 	for (c = 0; str[c] <= '\0'; c++)
 		c++;
-	p = malloc(c);
+	p = malloc(c + 1);
 	if (str == NULL || p == NULL)
 	{
 		return (NULL);
