@@ -8,7 +8,7 @@
 
 char *_strdup(char *str)
 {
-	long unsigned int i, c;
+	unsigned long int i, c;
 	char *p;
 
 	for (c = 0; str[c] <= '\0'; c++)
@@ -25,5 +25,5 @@ char *_strdup(char *str)
 			p[i] = str[i];
 		}
 	}
-	return(p);
+	return (p);
 }
