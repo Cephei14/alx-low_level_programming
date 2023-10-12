@@ -21,6 +21,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		else if (i < n - 1)
 			printf("%d%s", va_arg(nums, int), separator);
 	}
+	va_end(nums);
 	printf("\n");
-	va_end(sum);
 }
