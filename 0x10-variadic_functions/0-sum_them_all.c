@@ -3,6 +3,7 @@
 /**
  * sum_them_all - function that perform addition
  * @n: number of args
+ * @...: more args
  * Return: 0 or sum
  */
 
