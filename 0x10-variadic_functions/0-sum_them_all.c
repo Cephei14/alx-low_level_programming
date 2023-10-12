@@ -3,24 +3,21 @@
 /**
  * sum_them_all - function that perform addition
  * @n: number of args
- * @...: more args
  * Return: 0 or sum
  */
 
 int sum_them_all(const unsigned int n, ...)
 {
 	unsigned int i;
-	int sum;
-	va_list s;
+	int s;
+	va_list args;
 
 	if (n == 0)
-	{
 		return (0);
-	}
-	sum = 0;
-	va_start(s, n);
+	s = 0;
+	va_start(args, n);
 	for (i = 0; i < n; i++)
-		sum += va_arg(s, int);
-	va_end(s);
-	return (sum);
+		s += va_arg(args, int);
+	va_end(args);
+	return (s);
 }
