@@ -3,12 +3,13 @@
 /**
  * sum_them_all - function that perform addition
  * @n: number of args
- * Return: 0
+ * Return: 0 or sum
  */
 
 int sum_them_all(const unsigned int n, ...)
 {
-	unsigned int i, sum;
+	unsigned int i;
+	int sum;
 	va_list s;
 
 	if (n == 0)
