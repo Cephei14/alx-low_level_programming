@@ -3,6 +3,7 @@
 /**
  * print_all - funtion that print anything
  * @format: list of args types
+ * @...: other agrs
  * Return: nothing
  */
 void print_all(const char * const format, ...)
@@ -43,4 +44,5 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 	printf("\n");
+	va_end(PA);
 }
