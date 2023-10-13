@@ -21,24 +21,38 @@ void print_all(const char * const format, ...)
 		switch (format[i])
 		{
 			case'c':
+			{
 				printf("%c%s", va_arg(PA, int), sp);
+				i++;
+			}
 			break;
 			case'i':
+			{
 				printf("%d%s", va_arg(PA, int), sp);
+				i++;
+			}
 			break;
 			case'f':
+			{
 				printf("%f%s", va_arg(PA, double), sp);
+				i++;
+			}
 			break;
 			case's':
 			{
 				c = va_arg(PA, char *);
 				if (c == NULL)
+				{
 					c = "(nil)";
+				}
 				printf("%s%s", c, sp);
+				i++;
 			}
 			break;
+			default:
+			i++;
+			break;
 		}
-		i++;
 	}
 	printf("\n");
 }
