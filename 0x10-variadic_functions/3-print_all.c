@@ -15,9 +15,11 @@ void print_all(const char * const format, ...)
 	i = 0;
 	sp = ", ";
 	va_start(PA, format);
-	while (format[i])
+	if (format)
 	{
-		if (!format[i + 1])
+		while (format[i] != '\0')
+		{
+		if (format[i + 1] == '\0')
 			sp = "";
 		switch (format[i])
 		{
@@ -42,6 +44,7 @@ void print_all(const char * const format, ...)
 				break;
 		}
 		i++;
+	}
 	}
 	printf("\n");
 	va_end(PA);
