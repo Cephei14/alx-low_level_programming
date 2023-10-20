@@ -1,15 +1,15 @@
+section .data
+msg db 'Hello, Holberton',10
+
 section .text
 	global main
 	extern printf
 
-section .data
-	greeting: db "Hello, Holberton",10
-
 main:
 	push rbp
-	mov edi, greeting
+	mov rdi, msg
 	call printf
 	pop rbp
-	mov rax, 0
-	xor eax, eax
-	ret
+	mov rax, 60
+	xor rdi, rdi
+	syscall
