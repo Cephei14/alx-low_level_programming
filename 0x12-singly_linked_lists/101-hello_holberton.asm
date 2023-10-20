@@ -3,14 +3,13 @@ section .text
 	extern printf
 
 section .data
-	greeting db "Hello, Holberton",10
-	greeting_len equ $ - greeting
+	greeting: db "Hello, Holberton",10
 
 main:
 	push rbp
-	mov rdi, greeting
+	mov edi, greeting
 	call printf
 	pop rbp
-	mov rax, 60
-	xor rdi, rdi
-	syscall
+	mov rax, 0
+	xor eax, eax
+	ret
