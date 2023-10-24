@@ -1,5 +1,4 @@
 #include "lists.h"
-size_t listint_len(const listint_t *h);
 
 /**
  * insert_nodeint_at_index - function that insert a node in idx position
