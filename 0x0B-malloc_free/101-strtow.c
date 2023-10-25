@@ -26,7 +26,7 @@ char **strtow(char *str)
 	}
 	if (j == 0)
 		return (NULL);
-	p = malloc(sizeof(char *) * k + 1);
+	p = malloc(sizeof(char *));
 	if (p == NULL)
 		return (NULL);
 	i = 0, n = 0;
