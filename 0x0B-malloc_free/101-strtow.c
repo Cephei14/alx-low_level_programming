@@ -24,7 +24,7 @@ char **strtow(char *str)
 	}
 	if (j == 0)
 		return (NULL);
-	p = malloc(sizeof(char *) * (j + 1));
+	p = malloc(sizeof(char *) * j);
 	if (p == NULL)
 		return (NULL);
 	i = 0, n = 0;
@@ -35,7 +35,7 @@ char **strtow(char *str)
 		wl = 0;
 		while (str[i + wl] != ' ' && str[i + wl] != '\0')
 			wl++;
-		p[n] = malloc(wl + 1);
+		p[n] = malloc(wl);
 		if (p[n] == NULL)
 			return (NULL);
 		m = 0;
