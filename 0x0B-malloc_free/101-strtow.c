@@ -8,7 +8,7 @@
 
 char **strtow(char *str)
 {
-	int i = 0, j = 0, m, n, wl;
+	int i = 0, j = 0, m, n, wl, k;
 	char **p;
 
 	if (str == NULL || str[0] == '\0')
@@ -20,11 +20,13 @@ char **strtow(char *str)
 		else
 		{
 			i++, j++;
+			if (str[i] == ' ')
+				k++;
 		}
 	}
 	if (j == 0)
 		return (NULL);
-	p = malloc(j + 1);
+	p = malloc(j + k);
 	if (p == NULL)
 		return (NULL);
 	i = 0, n = 0;
@@ -40,9 +42,7 @@ char **strtow(char *str)
 			return (NULL);
 		m = 0;
 		while (m < wl)
-		{
 			p[n][m] = str[i + m], m++;
-		}
 		p[n][m] = '\0';
 		n++, i += wl;
 	}
