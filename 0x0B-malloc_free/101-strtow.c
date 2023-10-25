@@ -8,7 +8,7 @@
 
 char **strtow(char *str)
 {
-	int i = 0, j = 0, k = 0, m, n, wl;
+	int i = 0, j = 0, m, n, wl;
 	char **p;
 
 	if (str == NULL || str[0] == '\0')
@@ -20,11 +20,11 @@ char **strtow(char *str)
 		else
 		{
 			i++, j++;
-			if (str[i] == ' ')
-				k++;
 		}
 	}
-	p = malloc(sizeof(char *) * (j + k + 1));
+	if (j == 0)
+		return (NULL);
+	p = malloc(sizeof(char *) * (j + 1));
 	if (p == NULL)
 		return (NULL);
 	i = 0, n = 0;
