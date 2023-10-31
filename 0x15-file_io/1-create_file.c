@@ -18,10 +18,10 @@ int create_file(const char *filename, char *text_content)
 		while (text_content[l])
 			l++;
 	}
-	p = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+	p = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
 	if (p == -1)
 		return (-1);
-	wr = write(STDOUT_FILENO, text_content, l);
+	wr = write(p, text_content, l);
 	if (wr == -l)
 		return (-1);
 	close(p);
