@@ -23,8 +23,7 @@ int main(int argc, char **argv)
 	p = open(argv[1], O_RDONLY);
 	rd = read(p, buff, 1024);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	do
-	{
+	do {
 		if (p == -1 || rd == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
@@ -41,7 +40,7 @@ int main(int argc, char **argv)
 		rd = read(p, buff, 1024);
 		to = open(argv[2], O_WRONLY | O_APPEND);
 	} while (rd > 0);
-	free (buff);
+	free(buff);
 	c_file(p);
 	c_file(to);
 	return (0);
@@ -49,7 +48,7 @@ int main(int argc, char **argv)
 
 /**
  * c_buff - funtion that create a 1024 buffer
- *@f: storing file place
+ *@buff: storing file place
  * Return: pointer to the allocated buffer
  */
 
