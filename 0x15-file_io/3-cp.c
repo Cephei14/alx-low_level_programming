@@ -1,4 +1,8 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
 void close_it(int fd);
 
 /**
@@ -22,31 +26,28 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 	fd1 = open(argv[1], O_RDONLY);
-	rd = read(fd1, buffer, 1024);
-	fd2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (fd1 == -1 || rd == -1)
+	if (fd1 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		free(buffer);
 		exit(98);
 	}
-	while (rd > 0)
+	fd2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (fd2 == -1)
 	{
-		if (rd == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			free(buffer);
-			exit(98);
-		}
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		close_it(fd1);
+		exit(99);
+	}
+	while ((rd = read(fd1, buffer, 1024)) > 0)
+	{
 		wr = write(fd2, buffer, rd);
-		if (fd2 == -1 || wr == -1)
+		if (wr == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[2]);
-			free(buffer);
-			exit(98);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			close_it(fd1);
+			close_it(fd2);
+			exit(99);
 		}
-		rd = read(fd1, buffer, 1024);
-		fd2 = open(argv[2], O_WRONLY | O_APPEND);
 	}
 	free(buffer);
 	close_it(fd1);
@@ -70,4 +71,3 @@ void close_it(int fd)
 		exit(100);
 	}
 }
-
