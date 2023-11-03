@@ -14,7 +14,7 @@ void close_it(int fd);
 
 int main(int argc, char **argv)
 {
-	int fd1, rd, fd2, wr;
+	int i, fd1, rd, fd2, wr;
 	char *buffer;
 
 	buffer = malloc(1024);
@@ -38,8 +38,9 @@ int main(int argc, char **argv)
 		close_it(fd1);
 		exit(99);
 	}
-	while ((rd = read(fd1, buffer, 1024)) > 0)
+	for (i = 0; i < 1024; i++)
 	{
+		rd = read(fd1, buffer, 1024);
 		wr = write(fd2, buffer, rd);
 		if (wr == -1)
 		{
