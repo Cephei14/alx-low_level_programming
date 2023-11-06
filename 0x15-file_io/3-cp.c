@@ -41,6 +41,11 @@ int main(int argc, char **argv)
 	for (i = 0; i < 1024; i++)
 	{
 		rd = read(fd1, buffer, 1024);
+		if (rd == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
+		}
 		wr = write(fd2, buffer, rd);
 		if (wr == -1)
 		{
@@ -68,7 +73,7 @@ void close_it(int fd)
 	c = close(fd);
 	if (c == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close file %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
